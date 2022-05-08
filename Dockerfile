@@ -5,15 +5,9 @@ WORKDIR /procon
 RUN powershell Invoke-WebRequest -Uri "https://api.myrcon.net/procon/download?p=docker" -OutFile "app.zip"
 RUN powershell Expand-Archive -Path "app.zip" -DestinationPath "./"
 
-WORKDIR /procon/Configs
-VOLUME /procon/Configs
+VOLUME c:\\procon\\Configs
+VOLUME c:\\procon\\Logs
+VOLUME c:\\procon\\Plugins
 
-WORKDIR /procon/Logs
-VOLUME /procon/Logs
-
-WORKDIR /procon/Plugins
-VOLUME /procon/Plugins
-
-WORKDIR /procon
 
 ENTRYPOINT ["PRoCon.Console.exe"]

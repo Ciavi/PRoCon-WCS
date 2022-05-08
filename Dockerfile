@@ -9,5 +9,4 @@ VOLUME c:\\procon\\Configs
 VOLUME c:\\procon\\Logs
 VOLUME c:\\procon\\Plugins
 
-
 ENTRYPOINT ["PRoCon.Console.exe"]

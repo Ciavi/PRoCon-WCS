@@ -2,8 +2,8 @@ FROM mcr.microsoft.com/dotnet/framework/runtime:4.8
 
 WORKDIR /procon
 
-RUN pwsh Invoke-WebRequest -Uri "https://api.myrcon.net/procon/download?p=docker" -OutFile "app.zip"
-RUN pwsh Expand-Archive -Path "app.zip" -DestinationPath "./"
+RUN powershell [Net.ServicePointManager]::SecurityProtocol = 'tls13, tls12, tls11, tls'; Invoke-WebRequest -Uri https://api.myrcon.net/procon/download?p=docker -OutFile app.zip
+RUN powershell Expand-Archive -Path "app.zip" -DestinationPath "./"
 
 VOLUME c:\\procon\\Configs
 VOLUME c:\\procon\\Logs
